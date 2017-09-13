@@ -1,7 +1,5 @@
 Name: Yangyang Pu
 
-SCU ID: W1284851
-
 List of the submitted files:
     data/buildings.xsd
     data/students.xsd
