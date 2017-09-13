@@ -1,5 +1,3 @@
-Name: Yangyang Pu
-
 List of the submitted files:
     data/buildings.xsd
     data/students.xsd
