@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/hw4Schema" xmlns:hw4="http://www.example.org/hw4Schema" elementFormDefault="qualified">
+
+    <xs:element name="StudentList" type="hw4:StudentListType"/>
+
+    <xs:complexType name="StudentListType">
+        <xs:sequence>
+            <xs:element name="Student" type="hw4:StudentType" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="StudentType">
+        <xs:sequence>
+            <xs:element name="SSN" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{3}-[0-9]{2}-[0-9]{4}" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1" />
+            <xs:element name="DOB" type="xs:date" maxOccurs="1" minOccurs="1" />
+            <xs:element name="Gender" type="xs:string" maxOccurs="1" minOccurs="1" />
+            <xs:element name="Type" type="xs:string" maxOccurs="1" minOccurs="1" />
+            <xs:element name="BuildingCode" type="hw4:BuildingCodeListType" maxOccurs="1" minOccurs="1" />
+            <xs:element name="Phone" type="hw4:PhoneType" maxOccurs="1" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PhoneType">
+        <xs:sequence>
+            <xs:element name="PhoneNo" maxOccurs="unbounded" minOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="14" />
+                        <xs:minLength value="10" />
+                        <xs:pattern value="[0-9]{3}.*" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BuildingCodeListType">
+        <xs:sequence>
+            <xs:element name="OneBuildingCode" type="hw4:BuildingCodeType" maxOccurs="unbounded" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="BuildingCodeType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}"  />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

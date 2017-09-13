@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/hw4Schema" xmlns:hw4="http://www.example.org/hw4Schema" elementFormDefault="qualified">
+
+    <xs:element name="BuildingList" type="hw4:BuildingListType" />
+
+    <xs:complexType name="BuildingListType">
+        <xs:sequence>
+            <xs:element name="Building" type="hw4:BuildingType" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BuildingType">
+        <xs:sequence>
+            <xs:element name="BuildingCode" type="hw4:BuildingCodeType" maxOccurs="1" minOccurs="1" />
+            <xs:element name="BuildingName" type="xs:string" maxOccurs="1" minOccurs="1" />
+            <xs:element name="Position" type="hw4:PositionType" maxOccurs="1" minOccurs="1" />
+            <xs:element name="Address" type="hw4:AddressType" maxOccurs="1" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="BuildingCodeType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}"  />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <xs:complexType name="PositionType">
+        <xs:sequence>
+            <xs:element name="Latitude" type="xs:float" />
+            <xs:element name="Longitude" type="xs:float" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="StreetNo" type="xs:integer" />
+            <xs:element name="StrName" type="xs:string" />
+            <xs:element name="City" type="xs:string" />
+            <xs:element name="State" type="xs:string" />
+            <xs:element name="Zip" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
